@@ -1,0 +1,57 @@
+{
+    "name": "neurony/laravel-query-cache",
+    "description": "Cache all {select} queries or only the duplicate ones for a specific Eloquent model",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "cache",
+        "query",
+        "model",
+        "eloquent",
+        "duplicate"
+    ],
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Andrei Badea",
+            "email": "zbiller@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/contracts": "~5.7.0",
+        "illuminate/support": "~5.7.0",
+        "illuminate/database": "~5.7.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.7.0",
+        "phpunit/phpunit": "~7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Neurony\\QueryCache\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Neurony\\QueryCache\\Tests\\": "tests"
+        },
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Neurony\\QueryCache\\ServiceProvider"
+            ]
+        }
+    }
+}
