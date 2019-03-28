@@ -63,7 +63,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function registerBindings()
     {
-        $this->app->bind(QueryCacheServiceContract::class, QueryCacheService::class);
+        $this->app->singleton(QueryCacheServiceContract::class, QueryCacheService::class);
         $this->app->alias(QueryCacheServiceContract::class, 'cache.query');
     }
 }
