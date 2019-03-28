@@ -8,6 +8,7 @@ use Illuminate\Database\ConnectionInterface;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
+use Illuminate\Support\Facades\Redis;
 
 class QueryCacheBuilder extends QueryBuilder
 {
@@ -178,7 +179,7 @@ class QueryCacheBuilder extends QueryBuilder
     {
         return cache()->store(
             app('cache.query')->getDuplicateQueryCacheStore()
-        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1, function() {
+        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1 / 60, function() {
             return parent::runSelect();
         });
     }
