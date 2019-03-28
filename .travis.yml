@@ -17,3 +17,6 @@ before_script:
 
 script:
   - vendor/bin/phpunit
+
+services:
+  - redis-server
