@@ -3,9 +3,9 @@
 namespace Neurony\QueryCache;
 
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
 use Neurony\QueryCache\Services\QueryCacheService;
+use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
+use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 
 class ServiceProvider extends BaseServiceProvider
 {
