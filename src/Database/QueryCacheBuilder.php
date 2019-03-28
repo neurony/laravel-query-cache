@@ -176,7 +176,7 @@ class QueryCacheBuilder extends QueryBuilder
     {
         return cache()->store(
             app('cache.query')->getDuplicateQueryCacheStore()
-        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1 / 60, function () {
+        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1, function () {
             return parent::runSelect();
         });
     }
