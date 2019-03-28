@@ -55,7 +55,7 @@ class ServiceProvider extends BaseServiceProvider
      */
     protected function mergeConfigs()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/cache.php', 'query-cache');
+        $this->mergeConfigFrom(__DIR__.'/../config/cache.php', 'query-cache');
     }
 
     /**
