@@ -26,7 +26,7 @@ return [
         | Compatible cache stores: apc, array, redis, memcached
         |
         */
-        'store' => env('CACHE_DRIVER', 'array'),
+        'store' => env('QUERY_CACHE_DRIVER', 'array'),
 
         /*
         |
@@ -65,7 +65,7 @@ return [
         | Compatible cache stores: apc, array, redis, memcached
         |
         */
-        'store' => env('CACHE_DRIVER', 'array'),
+        'store' => env('QUERY_CACHE_DRIVER', 'array'),
 
         /*
         |
