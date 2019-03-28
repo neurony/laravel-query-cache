@@ -3,7 +3,6 @@
 namespace Neurony\QueryCache\Traits;
 
 use Illuminate\Database\Query\Builder;
-use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
 use Neurony\QueryCache\Database\QueryCacheBuilder;
 
 trait IsCacheable
@@ -29,7 +28,7 @@ trait IsCacheable
      */
     public function getQueryCacheTag(): string
     {
-        return app('cache.query')->getAllQueryCachePrefix() . '.' . (string)$this->getTable();
+        return app('cache.query')->getAllQueryCachePrefix().'.'.(string) $this->getTable();
     }
 
     /**
@@ -37,7 +36,7 @@ trait IsCacheable
      */
     public function getDuplicateQueryCacheTag(): string
     {
-        return app('cache.query')->getDuplicateQueryCachePrefix() . '.' . (string)$this->getTable();
+        return app('cache.query')->getDuplicateQueryCachePrefix().'.'.(string) $this->getTable();
     }
 
     /**

@@ -2,13 +2,11 @@
 
 namespace Neurony\QueryCache\Database;
 
-use BadMethodCallException;
 use Exception;
 use Illuminate\Database\ConnectionInterface;
-use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\Grammars\Grammar;
 use Illuminate\Database\Query\Processors\Processor;
-use Illuminate\Support\Facades\Redis;
+use Illuminate\Database\Query\Builder as QueryBuilder;
 
 class QueryCacheBuilder extends QueryBuilder
 {
@@ -43,8 +41,7 @@ class QueryCacheBuilder extends QueryBuilder
         Grammar $grammar = null,
         Processor $processor = null,
         $cacheTag = null, $cacheType = null
-    )
-    {
+    ) {
         parent::__construct($connection, $grammar, $processor);
 
         $this->cacheType = $cacheType;
@@ -59,7 +56,7 @@ class QueryCacheBuilder extends QueryBuilder
     public function getQueryCacheKey(): string
     {
         return json_encode([
-            $this->toSql() => $this->getBindings()
+            $this->toSql() => $this->getBindings(),
         ]);
     }
 
@@ -163,7 +160,7 @@ class QueryCacheBuilder extends QueryBuilder
     {
         return cache()->store(
             app('cache.query')->getAllQueryCacheStore()
-        )->tags($this->cacheTag)->rememberForever($this->getQueryCacheKey(), function() {
+        )->tags($this->cacheTag)->rememberForever($this->getQueryCacheKey(), function () {
             return parent::runSelect();
         });
     }
@@ -179,7 +176,7 @@ class QueryCacheBuilder extends QueryBuilder
     {
         return cache()->store(
             app('cache.query')->getDuplicateQueryCacheStore()
-        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1 / 60, function() {
+        )->tags($this->cacheTag)->remember($this->getQueryCacheKey(), 1 / 60, function () {
             return parent::runSelect();
         });
     }
