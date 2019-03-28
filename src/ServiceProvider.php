@@ -36,7 +36,6 @@ class ServiceProvider extends BaseServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigs();
         $this->registerBindings();
     }
 
@@ -48,14 +47,6 @@ class ServiceProvider extends BaseServiceProvider
         $this->publishes([
             __DIR__.'/../config/query-cache.php' => config_path('query-cache.php'),
         ], 'config');
-    }
-
-    /**
-     * @return void
-     */
-    protected function mergeConfigs()
-    {
-        $this->mergeConfigFrom(__DIR__ . '/../config/cache.php', 'query-cache');
     }
 
     /**
