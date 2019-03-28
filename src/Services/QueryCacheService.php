@@ -4,9 +4,9 @@ namespace Neurony\QueryCache\Services;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
-use Neurony\QueryCache\Helpers\RelationHelper;
 use Neurony\QueryCache\Traits\IsCacheable;
+use Neurony\QueryCache\Helpers\RelationHelper;
+use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
 
 class QueryCacheService implements QueryCacheServiceContract
 {
@@ -162,7 +162,7 @@ class QueryCacheService implements QueryCacheServiceContract
      */
     public function flushQueryCache(): void
     {
-        if (!self::canCacheQueries()) {
+        if (! self::canCacheQueries()) {
             return;
         }
 
@@ -182,7 +182,7 @@ class QueryCacheService implements QueryCacheServiceContract
      */
     public function clearQueryCache(Model $model): void
     {
-        if (!((self::shouldCacheAllQueries() || self::shouldCacheDuplicateQueries()) && self::canCacheQueries())) {
+        if (! ((self::shouldCacheAllQueries() || self::shouldCacheDuplicateQueries()) && self::canCacheQueries())) {
             return;
         }
 

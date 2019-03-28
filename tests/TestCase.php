@@ -3,8 +3,8 @@
 namespace Neurony\QueryCache\Tests;
 
 use Neurony\QueryCache\ServiceProvider;
-use Neurony\QueryCache\Tests\Models\Comment;
 use Neurony\QueryCache\Tests\Models\Post;
+use Neurony\QueryCache\Tests\Models\Comment;
 use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -56,7 +56,7 @@ abstract class TestCase extends Orchestra
      */
     protected function setUpDatabase(Application $app): void
     {
-        $this->loadMigrationsFrom(__DIR__ . '/Database/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/Database/Migrations');
     }
 
     /**
@@ -66,15 +66,15 @@ abstract class TestCase extends Orchestra
     {
         for ($i = 1; $i <= 3; $i++) {
             $post = Post::create([
-                'name' => 'Post name ' . $i,
-                'slug' => 'post-name-' . $i,
-                'content' => 'Post content' . $i,
+                'name' => 'Post name '.$i,
+                'slug' => 'post-name-'.$i,
+                'content' => 'Post content'.$i,
             ]);
 
             for ($j = 1; $j <= 3; $j++) {
                 $post->comments()->create([
-                    'title' => 'Comment title ' . $i . ' ' . $j,
-                    'content' => 'Comment content ' . $i . ' ' . $j,
+                    'title' => 'Comment title '.$i.' '.$j,
+                    'content' => 'Comment content '.$i.' '.$j,
                 ]);
             }
         }
