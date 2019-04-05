@@ -105,14 +105,14 @@ class QueryCacheBuilder extends QueryBuilder
      * Delete a record from the database.
      *
      * @param int|null $id
-     * @return int|void
+     * @return int|null
      * @throws Exception
      */
     public function delete($id = null): ?int
     {
         $this->flushQueryCache();
 
-        parent::delete($id);
+        return parent::delete($id);
     }
 
     /**
