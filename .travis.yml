@@ -10,6 +10,7 @@ matrix:
   include:
   allow_failures:
   - php: nightly
+  - php: 7.1
 
 before_script:
   - printf "\n" | pecl install -f redis
