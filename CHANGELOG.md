@@ -1,5 +1,9 @@
 # Changelog  
 
+## 2.0.0 - 2019/19/11
+
+- Support Laravel 6
+
 ## 1.1.1 - 2019/5/4
 
 - Fixed return type of `QueryCacheBuilder` -> `delete` method
