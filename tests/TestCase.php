@@ -2,11 +2,11 @@
 
 namespace Neurony\QueryCache\Tests;
 
-use Neurony\QueryCache\ServiceProvider;
-use Neurony\QueryCache\Tests\Models\Post;
-use Neurony\QueryCache\Tests\Models\Comment;
-use Orchestra\Testbench\TestCase as Orchestra;
 use Illuminate\Contracts\Foundation\Application;
+use Neurony\QueryCache\ServiceProvider;
+use Neurony\QueryCache\Tests\Models\Comment;
+use Neurony\QueryCache\Tests\Models\Post;
+use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {

@@ -4,9 +4,9 @@ namespace Neurony\QueryCache\Services;
 
 use Exception;
 use Illuminate\Database\Eloquent\Model;
-use Neurony\QueryCache\Traits\IsCacheable;
-use Neurony\QueryCache\Helpers\RelationHelper;
 use Neurony\QueryCache\Contracts\QueryCacheServiceContract;
+use Neurony\QueryCache\Helpers\RelationHelper;
+use Neurony\QueryCache\Traits\IsCacheable;
 
 class QueryCacheService implements QueryCacheServiceContract
 {
