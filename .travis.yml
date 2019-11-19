@@ -10,8 +10,10 @@ matrix:
   include:
   allow_failures:
   - php: nightly
+  - php: 7.1
 
 before_script:
+  - printf "\n" | pecl install -f redis
   - travis_retry composer self-update
   - travis_retry composer update --no-interaction --prefer-source
 
