@@ -1,4 +1,18 @@
-# Cache all "select" queries or only the duplicate ones for a specific Eloquent model
+# Package discontinued! Check out VARBOX.IO instead.
+
+Unfortunately this package is now discontinued.   
+Please check out [Varbox](https://varbox.io) (Laravel Admin Panel) for this functionality and much more.
+
+- Buy: [https://varbox.io/buy](https://varbox.io/buy)
+- Docs: [https://varbox.io/docs](https://varbox.io/docs)
+- Demo: [https://demo.varbox.test/admin](https://demo.varbox.test/admin)
+- Repo [https://github.com/VarboxInternational/varbox](https://github.com/VarboxInternational/varbox)
+
+Thank you! 
+
+---
+
+### Cache all "select" queries or only the duplicate ones for a specific Eloquent model
 
 [![Build Status](https://travis-ci.org/Neurony/laravel-query-cache.svg?branch=master)](https://travis-ci.org/Neurony/laravel-query-cache)
 [![StyleCI](https://github.styleci.io/repos/177636041/shield?branch=master)](https://github.styleci.io/repos/177636041)
@@ -9,7 +23,7 @@
 - [Usage](#usage)   
 - [Extra](#extra)   
 
-# Overview
+### Overview
 
 This package allows you to cache all queries of type `select`, or only just the duplicated ones for an Eloquent model.    
    
@@ -18,7 +32,7 @@ This package allows you to cache all queries of type `select`, or only just the 
 > **Compatible cache stores:** array, redis, apc, memcached   
 > **Tested cache stores:** array, redis
 
-# Installation
+### Installation
 
 Install the package via Composer:
 
@@ -34,9 +48,9 @@ php artisan vendor:publish --provider="Neurony\QueryCache\ServiceProvider" --tag
 
 > Please read the `config/query-cache.php` config file comments as it contains extra information
 
-# Usage
+### Usage
 
-### Step 1
+##### Step 1
 
 Your Eloquent models should use the `Neurony\QueryCache\Traits\IsCacheable` trait.   
 
@@ -54,7 +68,7 @@ class YourModel extends Model
 }
 ```
 
-### Step 2
+##### Step 2
 
 In your `.env` file add the necessary environment variables:
 
@@ -72,9 +86,9 @@ CACHE_DUPLICATE_QUERIES=true
 
 Depending on how you set your environment variables, the next time you make `select` queries on that Eloquent model, after the very first run, the queries will be cached.
 
-# Extra
+### Extra
 
-### Using the `QueryCacheService` class
+##### Using the `QueryCacheService` class
 
 Please note that the `Neurony\QueryCache\Services\QueryCacheService` class is the actual implementation of the `Neurony\QueryCache\Contracts\QueryCacheServiceContract` interface.   
    
@@ -90,7 +104,7 @@ app('cache.query');
 app(QueryCacheServiceContract::class);
 ```
 
-### Enable / Disable query caching
+##### Enable / Disable query caching
 
 You can enable or disable all query caching for your current request, by calling the `enableQueryCache` or `disableQueryCache` methods present on the `Neurony\QueryCache\Services\QueryCacheService` class.   
   
@@ -112,23 +126,23 @@ this queries will be cached
 */
 ```
 
-# Credits
+### Credits
 
 - [Andrei Badea](https://github.com/zbiller)
 - [All Contributors](../../contributors)
 
-# Security
+### Security
 
 If you discover any security related issues, please email andrei.badea@neurony.ro instead of using the issue tracker.
 
-# License
+### License
 
 The MIT License (MIT). Please see [LICENSE](LICENSE.md) for more information.
 
-# Changelog
+### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
-# Contributing
+### Contributing
 
 Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
